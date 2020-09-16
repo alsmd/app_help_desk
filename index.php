@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
   <head>
     <meta charset="utf-8" />
     <title>App Help Desk</title>
@@ -32,12 +33,12 @@
               Login
             </div>
             <div class="card-body">
-              <form>
+              <form action="scripts/valida_login.php" method="post">
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="E-mail">
+                  <input type="email" class="form-control" placeholder="E-mail" name="email">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Senha">
+                  <input type="password" class="form-control" placeholder="Senha" name="senha"> 
                 </div>
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
               </form>
