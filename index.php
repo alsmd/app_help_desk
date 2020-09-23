@@ -34,7 +34,7 @@
               Login
             </div>
             <div class="card-body">
-              <form action="scripts/valida_login.php" method="post">
+              <form action="valida_login.php" method="post">
                 <div class="form-group">
                   <input type="email" class="form-control" placeholder="E-mail" name="email">
                 </div>
@@ -46,6 +46,10 @@
                 ?>
                 <div class="text-danger">
                     Usuario ou senha inválido(s)
+                </div>
+                  <?php }else if(isset($_GET['login']) && $_GET['login'] == 'erro2'){ ?>
+                    <div class="text-danger">
+                    Precisa estar logado para acessar a pagina
                 </div>
                   <?php }; ?>
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>

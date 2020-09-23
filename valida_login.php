@@ -1,5 +1,7 @@
 <?php 
-
+    session_start();
+    $_SESSION['autenticado'] = false;
+    print_r($_SESSION);
     //Usuarios do sistema
     $usuarios_app = array(
         array('email' => 'adm@teste.com','senha' => '123456'),
@@ -19,9 +21,10 @@
 
     if($acesso){
         echo "Acesso PERMITIDO";
+        $_SESSION['autenticado'] = true;
     }else {
-        header('Location: ../index.php?login=erro');
-
+        header('Location:index.php?login=erro');
+        $_SESSION['autenticado'] = false;
     }
 
 

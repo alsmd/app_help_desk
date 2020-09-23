@@ -1,3 +1,7 @@
+<?php   
+  include("validador_acesso.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
