@@ -1,17 +1,18 @@
 <?php   
   require_once("validador_acesso.php");
 
-
   //abrir o arquivo.hd
   $arquivo = fopen('arquivo.hd','r');
-  $arquivos = [];
+  $chamados = [];
   //enquanto houver registros (linhas ) a serem recuperados
 
   while(!(feof($arquivo))){
     //linhas
-    $arquivos[] = fgets($arquivo); 
+    $chamados[] = fgets($arquivo); 
 
   }
+  $chamados = array_reverse($chamados);
+  //fecha o arquivo
   fclose($arquivo);
 
 ?>
@@ -57,9 +58,12 @@
             
             <div class="card-body">
               
-            <?php foreach($arquivos as $indice => $a){
+            <?php foreach($chamados as $indice => $a){ //imprime os card com as informações recuperados do ""BD""
               $chamado = explode("#",$a);
-              if($a != ''){
+              if($a == ''){continue;} //pula a impressão caso esteja vazio
+              $chamado[3] = trim($chamado[3]);
+              //mostra apenas os dados correspondentes a conta logada, a menos que seja um dos administradores que tem acesso a todos os dados
+              if($chamado[3] == $_SESSION['email'] || $_SESSION['email'] == 'user@hotmail.com' || $_SESSION['email'] == 'adm@hotmail.com'){
               ?>
               
               <div class="card mb-3 bg-light">
@@ -70,7 +74,7 @@
 
                 </div>
               </div>
-              <?php }}?>
+              <?php }} ?>
               
 
               <div class="row mt-5">
