@@ -1,6 +1,19 @@
 <?php   
   require_once("validador_acesso.php");
 
+
+  //abrir o arquivo.hd
+  $arquivo = fopen('arquivo.hd','r');
+  $arquivos = [];
+  //enquanto houver registros (linhas ) a serem recuperados
+
+  while(!(feof($arquivo))){
+    //linhas
+    $arquivos[] = fgets($arquivo); 
+
+  }
+  fclose($arquivo);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -44,23 +57,21 @@
             
             <div class="card-body">
               
+            <?php foreach($arquivos as $indice => $a){
+              $chamado = explode("#",$a);
+              if($a != ''){
+              ?>
+              
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
+                  <h5 class="card-title"><?=$chamado[0]?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamado[1]?></h6>
+                  <p class="card-text"><?=$chamado[2]?></p>
 
                 </div>
               </div>
-
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
-
-                </div>
-              </div>
+              <?php }}?>
+              
 
               <div class="row mt-5">
                 <div class="col-6">
@@ -68,6 +79,10 @@
                 </div>
               </div>
             </div>
+
+            
+
+
           </div>
         </div>
       </div>
