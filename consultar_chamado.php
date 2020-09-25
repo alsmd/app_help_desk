@@ -8,10 +8,14 @@
 
   while(!(feof($arquivo))){
     //linhas
-    $chamados[] = fgets($arquivo); 
-
+    $dado = fgets($arquivo);
+    $aux = explode('#',$dado);
+    if($dado == '') continue; //pula a impressão caso esteja vazio
+    if($_SESSION['perfil_id'] == 1 || $_SESSION['id'] == $aux[3])
+    $chamados[] = $aux;
   }
-  $chamados = array_reverse($chamados);
+
+ 
   //fecha o arquivo
   fclose($arquivo);
 
@@ -58,14 +62,7 @@
             
             <div class="card-body">
               
-            <?php foreach($chamados as $indice => $a){ //imprime os card com as informações recuperados do ""BD""
-              $chamado = explode("#",$a);
-              if($a == ''){continue;} //pula a impressão caso esteja vazio
-
-              /* $chamado[3] = trim($chamado[3]); */ //comando utilizado na versão anterior onde era utilizado o email para autenticar
-
-              //mostra apenas os dados correspondentes a conta logada, a menos que seja um dos administradores que tem acesso a todos os dados
-              if($_SESSION['perfil_id'] == 1 || $chamado[3] == $_SESSION['id']){
+            <?php foreach($chamados as $indice => $chamado){ //imprime os card com as informações recuperados do ""BD""
               ?>
               
               <div class="card mb-3 bg-light">
@@ -76,7 +73,7 @@
 
                 </div>
               </div>
-              <?php }} ?>
+              <?php } ?>
               
 
               <div class="row mt-5">
