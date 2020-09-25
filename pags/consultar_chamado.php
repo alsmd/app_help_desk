@@ -1,8 +1,8 @@
 <?php   
-  require_once("validador_acesso.php");
+  require_once("../scripts/validador_acesso.php");
 
   //abrir o arquivo.hd
-  $arquivo = fopen('../../app_help_desk/arquivo.hd','r');
+  $arquivo = fopen('../../../app_help_desk/arquivo.hd','r');
   $chamados = [];
   //enquanto houver registros (linhas ) a serem recuperados
 

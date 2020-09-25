@@ -1,5 +1,5 @@
 <?php   
-  require_once("validador_acesso.php");
+  require_once("../scripts/validador_acesso.php");
 
 ?>
 <!DOCTYPE html>
@@ -48,7 +48,7 @@
               <div class="row">
                 <div class="col">
                   
-                  <form method="post" action="registra_chamado.php">
+                  <form method="post" action="../scripts/registra_chamado.php">
                     <div class="form-group">
                       <label>Título</label>
                       <input type="text" class="form-control" placeholder="Título" name="titulo">

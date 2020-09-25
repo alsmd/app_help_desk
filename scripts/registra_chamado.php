@@ -9,12 +9,12 @@
     $texto = $titulo .'#'. $categoria .'#'.$descricao .'#'.$_SESSION['id']. PHP_EOL;
 
     //abrindo o arquivo
-  $arquivo = fopen('../../app_help_desk/arquivo.hd','a');
+  $arquivo = fopen('../../../app_help_desk/arquivo.hd','a');
 
     //escrevendo o texto
     fwrite($arquivo, $texto);
     //fechando o arquivo
     fclose($arquivo);
 
-    header('Location:abrir_chamado.php?chamado=true');
+    header('Location:../pags/abrir_chamado.php?chamado=true');
 ?>

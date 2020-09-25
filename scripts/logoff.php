@@ -7,7 +7,7 @@
     foreach($_SESSION as $indice => $item){
         unset($_SESSION[$indice]);
     }
-    header('Location: index.php');
+    header('Location: ../pags/index.php');
 
 
     //destruir a variavel de sessão
