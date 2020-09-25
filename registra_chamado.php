@@ -6,10 +6,10 @@
     $titulo = str_replace("#","-",$_POST['titulo']);
     $categoria = str_replace("#","-",$_POST['categoria']);
     $descricao = str_replace("#","-",$_POST['descricao']);
-    $texto = $titulo .'#'. $categoria .'#'.$descricao .'#'.$_SESSION['email']. PHP_EOL;
+    $texto = $titulo .'#'. $categoria .'#'.$descricao .'#'.$_SESSION['id']. PHP_EOL;
 
     //abrindo o arquivo
-    $arquivo = fopen('arquivo.hd','a');
+  $arquivo = fopen('../../app_help_desk/arquivo.hd','a');
 
     //escrevendo o texto
     fwrite($arquivo, $texto);

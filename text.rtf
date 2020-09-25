@@ -1,4 +1,5 @@
 {\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
 {\*\generator Riched20 6.3.9600}\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\qc\b\f0\fs44\lang22 APP\b0\fs32\par
 
@@ -57,7 +58,7 @@ aula 6\par
 \b Registrando chamados\par
 \b0 *utilizar arquivo txt\par
 *podemos utilizar os metodos get e post para enviar os dados para o servidor\par
-*\b fopen\b0 ('nome','a\'e7\'e3o que sera tomada')// para abrir um novo arquivo, caso esse aquivo n\'e3o exista ele sera criado(https://www.php.net/manual/en/function.fopen.php)\par
+*\b fopen\b0 ('nome','a\'e7\'e3o que sera tomada')// para abrir um novo arquivo, caso esse aquivo n\'e3o exista ele sera criado({{\field{\*\fldinst{HYPERLINK https://www.php.net/manual/en/function.fopen.php }}{\fldrslt{https://www.php.net/manual/en/function.fopen.php\ul0\cf0}}}}\f0\fs32 )\par
 *recuperamos os dados do formulario com o POST  e tranformamos em uma string, em que cada valor sera separado por #\fs22\par
 \fs32 *fwrite('referencia do arquivo','oque sera escrito')\fs22\par
 \fs32 *fclose('referencia do arquivo aberto') // fechar arquivo\par
@@ -79,6 +80,14 @@ aula 8\par
 \b Aplicando controle de perfil de usuarios\b0\par
 *trim() para remover espa\'e7os extras na string\par
 *rtrim e ltrim, remover da direita ou esquerda\par
+aula 9\par
+\b Seguran\'e7a no back-end de aplica\'e7\'f5es web\par
+\b0 *arquivos que possuem informa\'e7\'f5es sigilosas para regra de negocio n\'e3o podem ficar espostos  no diretorio publico, pois pode ser facilmente acessado por algum usuario\par
+*criar uma pasta no /xamp que sera o diretorio de arquivos e scripts sigilosos(criar um arquivo fora do diretorio publico)\par
+*para fazer com que a aplica\'e7\'e3o tenha a inteligencia de executar um codigo externo basta utilizar os comandos de inclus\'e3o\par
+*desta forma nosso arquivo estara protegido pelo farewall do system operacional e o servidor http n\'e3o estara olhando diretamente para ele, ele n\'e3o tem acesso a esse diretorio por n\'e3o ser publico, mas quando o require \'e9 feito no lado do servidor ele tem acesso a localizar qualquer arquivo do systema operacional\par
+*dessa forma criamos uma barreira\par
 *\fs22\par
+\par
 }
  

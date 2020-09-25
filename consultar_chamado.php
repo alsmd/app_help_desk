@@ -2,7 +2,7 @@
   require_once("validador_acesso.php");
 
   //abrir o arquivo.hd
-  $arquivo = fopen('arquivo.hd','r');
+  $arquivo = fopen('../../app_help_desk/arquivo.hd','r');
   $chamados = [];
   //enquanto houver registros (linhas ) a serem recuperados
 
@@ -11,7 +11,7 @@
     $dado = fgets($arquivo);
     $aux = explode('#',$dado);
     if($dado == '') continue; //pula a impressão caso esteja vazio
-    if($_SESSION['perfil_id'] == 1 || $_SESSION['id'] == $aux[3])
+    if($_SESSION['perfil_id'] == 1 || $_SESSION['id'] == $aux[3])//recupera apenas os dados correspondentes a conta logada, a menos que seja um dos administradores que tem acesso a todos os dados
     $chamados[] = $aux;
   }
 
