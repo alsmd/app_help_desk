@@ -61,9 +61,11 @@
             <?php foreach($chamados as $indice => $a){ //imprime os card com as informações recuperados do ""BD""
               $chamado = explode("#",$a);
               if($a == ''){continue;} //pula a impressão caso esteja vazio
-              $chamado[3] = trim($chamado[3]);
+
+              /* $chamado[3] = trim($chamado[3]); */ //comando utilizado na versão anterior onde era utilizado o email para autenticar
+
               //mostra apenas os dados correspondentes a conta logada, a menos que seja um dos administradores que tem acesso a todos os dados
-              if($chamado[3] == $_SESSION['email'] || $_SESSION['email'] == 'user@hotmail.com' || $_SESSION['email'] == 'adm@hotmail.com'){
+              if($_SESSION['perfil_id'] == 1 || $chamado[3] == $_SESSION['id']){
               ?>
               
               <div class="card mb-3 bg-light">
